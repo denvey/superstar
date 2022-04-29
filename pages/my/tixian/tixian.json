@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "c-loading": "/pages/component/loading/loading"
+    },
+    "navigationBarTitleText": "提现管理"
+}

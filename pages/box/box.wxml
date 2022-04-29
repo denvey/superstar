@@ -1,0 +1,258 @@
+<view class="cu-custom" style="">
+    <view class="cu-bar fixed " style="{{headbg?'background:#f2f4f3;':''}}height:{{CustomBar+10}}px;padding-top:{{StatusBar}}px;display:flex;justify-content:space-between">
+        <view style="display:flex;margin-left:20rpx;align-items:flex-end;margin-top:-10px">
+            <view bindtap="hideModal" class="" style="display: flex;background:#fff;height:65rpx;width:65rpx;border-radius:50rpx;text-align:center;align-items:middle;">
+                <button class="cu-btn icon" style="background:#fff;height:65rpx;width:65rpx;">
+                    <text class="icon-back text-red"></text>
+                </button>
+            </view>
+        </view>
+    </view>
+</view>
+<view>
+    <view style="position:fixed;top:0;width:100%;z-index:0;">
+        <view style="filter: blur(5rpx);height:850rpx;width:120%;background:url('{{openboxinfo.box_cover}}') no-repeat center center;background-size:120%;margin-left:-10%;margin-top:-10%"></view>
+    </view>
+    <view class="" style="width:100%;border-radius:50rpx;overflow:hidden;transform:rotate(0deg);">
+        <view style="border-radius:50rpx;overflow:hidden;position:relative;z-index:800;-webkit-transform:rotate(0deg);padding:0rpx;">
+            <view style="width:100%;overflow:hidden;margin-top:10rpx;">
+                <view class="" style="position:relative;padding:0rpx 0 80rpx 0;">
+                    <view style="display:flex;flex-direction:column;width:100%;align-items:center;-webkit-transform:rotate(0deg);">
+                        <view class="{{openthebox_animation}}" style="border:10rpx solid #fff;width:280rpx;height:280rpx;margin-top:220rpx;border-radius:30rpx;z-index:1200;overflow:hidden;">
+                            <image mode="aspectFill" src="{{openboxinfo.box_cover}}" style="width:100%;height:100%;border-radius:20rpx;"></image>
+                        </view>
+                    </view>
+                    <view style="background:#f2f4f3;border-radius:40rpx 40rpx 0 0;">
+                        <view class="bg-white" style="position:relative;margin:20rpx 0;padding:10rpx 30rpx 20rpx 30rpx;border-radius:40rpx;z-index:9">
+                            <view style="top:40rpx;left:0;right:0;margin:auto;text-align: center;" wx:if="{{showprize}}">
+                                <view style="font-size:40rpx;font-weight:700;margin-bottom:30rpx;margin-top:120rpx;"> {{prize!==''?'恭喜您获得':'很遗憾，没抽到'}}</view>
+                                <view class="{{showprize_animation}}" style="width:250rpx;height:250rpx;border:10rpx solid #eee;margin-top:0rpx;border-radius:30rpx;z-index:1200;overflow:hidden;left:0;right:0;margin:auto">
+                                    <image mode="aspectFill" src="{{prize!==''?prize.prize_pic:'/resource/images/openbox.png'}}" style="{{prize.prize_pic?prize.prize_pic:''}};width:100%;height:100%;border-radius:28rpx;"></image>
+                                </view>
+                                <view style="font-size:30rpx;font-weight:700;margin-top:30rpx;">{{prize.complete_prize_title}}</view>
+                                <view class="btn-group" style="padding:0 20rpx;">
+                                    <button bindtap="gotowarehouse" class="cu-btn bg-gradual-orange round shadow-blur" style="{{prize!==''?'':'display:none;'}}margin-top:100rpx;width:400rpx;height:75rpx;">去仓库查看</button>
+                                </view>
+                            </view>
+                            <view class="bg-gradual-orange" style="position:absolute;width:400rpx;height:50rpx;top:0;left:0;right:0;margin:auto;border-radius:0 0 50rpx 50rpx;text-align: center;">
+                                <text class="{{openthebox_animation3}}" style="margin:20rpx 0;color:#fff;font-size:20rpx;line-height:50rpx;">{{openthebox_title}}</text>
+                            </view>
+                            <scroll-view class="{{openthebox_animation4}}" scrollX="true" style="width:100%;margin-top:70rpx;">
+                                <view style="display:flex;flex-direction:row;min-height:120rpx;">
+                                    <view style="margin-right:20rpx;width:200rpx;" wx:for="{{openboxinfo.prizes_list}}" wx:for-item="prizes_list_item">
+                                        <view bindtap="viewprizesimg" data-name="{{prizes_list_item.prizes_fragment_title}}" data-pic="{{prizes_list_item.prize_pic==''?'':prizes_list_item.prize_pic}}" style="position:relative;">
+                                            <image mode="aspectFill" src="{{prizes_list_item.prize_pic==''?'/resource/images/hiddenbox.jpg':prizes_list_item.prize_pic}}" style="width:200rpx;height:200rpx;border-radius:20rpx;border:8rpx solid #f7f7f7;"></image>
+                                            <view class="bg-gradual-orange" style="position:absolute;right:15rpx;bottom:20rpx;border-radius:5rpx;font-size:20rpx;padding:0 10rpx;" wx:if="{{choicezhonglvprize_index==index}}"> +{{zhonglvtitle}}中率</view>
+                                        </view>
+                                        <view bindtap="viewprizesname" class="text-grey" data-name="{{prizes_list_item.prizes_fragment_title}}" style="font-size:20rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;"> {{prizes_list_item.prizes_fragment_title==''?'未知':prizes_list_item.prizes_fragment_title}}</view>
+                                    </view>
+                                </view>
+                            </scroll-view>
+                            <view class="{{openthebox_animation2}}" style="width:100%;padding:20rpx 0;color:#000">
+                                <view style="background:#f7f7f7;border-radius:15rpx;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+                                    <view style="position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:15rpx 30rpx;text-align:left;overflow:hidden">
+                                        <view style="font-size:35rpx;font-weight:700;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;"> {{openboxinfo.box_title}}</view>
+                                        <view class="bg-gradual-orange" style="{{openboxinfo.box_rank?'display:block;':'display:none;'}}background:{{openboxinfo.box_rank.rank_color}};font-size:20rpx;font-weight:700;margin-top:5rpx;padding:5rpx 10rpx;width:120rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;border-radius:5rpx;text-align:center">
+                                            <view>{{openboxinfo.box_rank.rank_name}}</view>
+                                        </view>
+                                    </view>
+                                    <view style="display:flex;background:#fed73e;justify-content:space-between;padding:10rpx 20rpx;text-align:left;align-items:center;">
+                                        <view style="display:flex;align-items:center;">
+                                            <view style="display:flex;align-items:flex-end">
+                                                <block wx:if="{{openboxinfo.box_open_price>0||openboxinfo.box_open_integral>0}}">
+                                                    <text class="numfont text-price" style="font-size:40rpx;{{openboxinfo.box_pay_payment_wechatpay=='1'||openboxinfo.box_pay_payment_balance=='1'?'':'display:none'}}">{{openboxinfo.box_open_price}}</text>
+                                                    <text class="numfont" style="font-size:20rpx;margin:0 20rpx 5rpx 20rpx;{{openboxinfo.box_pay_payment_wechatpay=='1'||openboxinfo.box_pay_payment_balance=='1'?'':'display:none'}}">|</text>
+                                                    <text class="numfont" style="font-size:40rpx;{{openboxinfo.box_pay_payment_integral=='1'?'':'display:none'}}">{{openboxinfo.box_open_integral}}</text>
+                                                    <text style="font-size: 20rpx;;margin:0 0rpx 5rpx 0rpx;">{{currency_name}}</text>
+                                                </block>
+                                                <text class="numfont" style="margin:0 10rpx;font-size:30rpx;font-weight:bold" wx:else>免费</text>
+                                            </view>
+                                        </view>
+                                        <view>
+                                            <view class="cu-avatar-group">
+                                                <view class="cu-avatar round sm avatarmore"></view>
+                                                <view class="cu-avatar round sm" style="border:3rpx solid #f1f1f1 !important;background-image:url({{item}});" wx:for="{{openboxinfo.thisboxowner}}"></view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view style="position:relative;z-index:8;{{showprize?'display:none':''}}">
+                            <view class="{{openthebox_animation4}}" style="position:relative;background:#fff;padding:45rpx 30rpx 30rpx 30rpx;;margin-top:40rpx;border-radius:0 30rpx 30rpx 30rpx;" wx:if="{{islogin}}">
+                                <view class="bg-gradual-gold" style="position:absolute;width:220rpx;top:-25rpx;left:0rpx;height:50rpx;border-radius:30rpx  0 30rpx;font-size:25rpx;font-weight:700;text-align:left;">
+                                    <text style="margin-left:30rpx;line-height:50rpx;">我的道具</text>
+                                </view>
+                                <block wx:if="{{openboxinfo.memberstools.length==0}}">
+                                    <view style="display:flex;height:85rpx;width:100%;align-items:center;justify-content:center;"> 还没有道具哦 </view>
+                                    <view style="text-align: center;">
+                                        <button bindtap="tobuytool" class="cu-btn bg-gradual-gold  round" style="width:200rpx;height:50rpx">购买</button>
+                                    </view>
+                                </block>
+                                <scroll-view scrollX="true" style="width:100%;height:135rpx;" wx:else>
+                                    <view style="display:flex;flex-direction:row;">
+                                        <view bindtap="usetools" data-id="{{item.id}}" data-index="{{index}}" data-type="{{item.tools.type}}" style="margin-right:20rpx;" wx:for="{{openboxinfo.memberstools}}">
+                                            <view class="" style="border-radius:15rpx;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;width:220rpx;">
+                                                <view style="background:#f7f7f7;height:85rpx;padding:30rpx 10rpx 10rpx 5rpx;font-size:25rpx;font-weight:700;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;text-align: center;"> {{item.tools.tool_name}}</view>
+                                                <view class="bg-gradual-orange" style="min-height:50rpx;padding:10rpx;font-size:20rpx;display:flex;align-items:center;justify-content:center"> {{item.tools.type==0?'+'+item.tools.add_winning_probability+'%中率':'可查看此盒奖品列表'}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </scroll-view>
+                            </view>
+                            <view class="{{openthebox_animation4}}" style="{{openboxinfo.membersbox_state==0?'':'display:none;'}}position:relative;background:#fff;padding:45rpx 30rpx 30rpx 30rpx;;margin-top:40rpx;border-radius:0 30rpx 30rpx 30rpx;min-height:200rpx;" wx:if="{{openboxinfo.box_pay_payment_question==1}}">
+                                <view class="bg-gradual-gold" style="position:absolute;width:200rpx;top:-25rpx;left:0rpx;height:50rpx;border-radius:30rpx  0 30rpx;font-size:25rpx;font-weight:700;text-align:left;">
+                                    <text style="margin-left:30rpx;line-height:50rpx;">答题开盒</text>
+                                </view>
+                                <view style="display:flex;flex-direction:column;justify-content:flex-start">
+                                    <text style="font-size:30rpx;font-weight:700;text-align:left;">Q:{{openboxinfo.box_pay_question}}</text>
+                                    <view class="cu-form-group">
+                                        <view class="title">输入答案</view>
+                                        <input bindinput="inputanswer" class="radius" name="input" placeholder="" style="background:#f7f7f7;height:55rpx;" value="{{answer}}"></input>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="{{openthebox_animation4}}" style="position:relative;background:#fff;padding:45rpx 30rpx 30rpx 30rpx;;margin-top:40rpx;border-radius:0 30rpx 30rpx 30rpx;min-height:200rpx;" wx:if="{{openboxinfo.box_pay_payment_question==1}}">
+                                <view class="bg-gradual-gold" style="position:absolute;width:200rpx;top:-25rpx;left:0rpx;height:50rpx;border-radius:30rpx  0 30rpx;font-size:25rpx;font-weight:700;text-align:left;">
+                                    <text style="margin-left:30rpx;line-height:50rpx;">答题开盒</text>
+                                </view>
+                                <view style="display:flex;flex-direction:column;justify-content:flex-start">
+                                    <text style="font-size:30rpx;font-weight:700;text-align:left;">Q:{{openboxinfo.box_pay_question}}</text>
+                                    <view class="cu-form-group">
+                                        <view class="title">输入答案</view>
+                                        <input bindinput="inputanswer" class="radius" name="input" placeholder="" style="background:#f7f7f7;height:55rpx;" value="{{answer}}"></input>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="{{openthebox_animation4}}" id="content" style="position:relative;background:#fff;padding:45rpx 30rpx 30rpx 30rpx;;margin-top:40rpx;border-radius:0 30rpx 30rpx 30rpx;min-height:200rpx;">
+                                <view class="bg-gradual-gold" style="position:absolute;width:200rpx;top:-25rpx;left:0rpx;height:50rpx;border-radius:30rpx  0 30rpx;font-size:25rpx;font-weight:700;text-align:left;">
+                                    <text style="margin-left:30rpx;line-height:50rpx;">盒子介绍</text>
+                                </view>
+                                <view class="" style="padding:20rpx 5rpx;">
+                                    <image mode="aspectFit" src="/resource/images/notext.png" style="width:500rpx;height:400rpx;" wx:if="{{openboxinfo.box_content==''}}"></image>
+                                    <rich-text nodes="{{openboxinfo.box_content!==''?openboxinfo.box_content:'盒子介绍空空如也'}}"></rich-text>
+                                </view>
+                            </view>
+                            <view style="height:100rpx;"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="hidetoolmodal" catchtouchmove="return" class="cu-modal {{tools_toushi?'show':''}}" style="">
+        <view catchtap style="background:#fff;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;border-radius:30rpx;width:700rpx;height:400rpx;overflow:hidden;z-index:9999;text-align:center;padding:50rpx 0rpx 0rpx 0rpx;border:10rpx solid #f7f7f7;">
+            <view style="font-size:35rpx;font-weight:700;margin-top:50rpx;">确定使用一张透视卡吗?</view>
+            <view bindtap="hidetoolmodal" class="" style="position:absolute; right:10rpx;z-index:999;top:10rpx;">
+                <button class="cu-btn icon" style="height:40rpx;width:40rpx;">
+                    <text class="icon-close text-red"></text>
+                </button>
+            </view>
+            <view style="display:flex;justify-content:space-around;margin-top:80rpx;">
+                <button bindtap="hidetoolmodal" class="cu-btn bg-gary margin-tb-sm xl round" style="z-index:9999;width:200rpx;">取消</button>
+                <button bindtap="usetoushi" class="cu-btn bg-gradual-orange margin-tb-sm xl round" style="z-index:9999;width:400rpx;">立即使用</button>
+            </view>
+        </view>
+    </view>
+    <view bindtap="hidetoolmodal" catchtouchmove="return" class="cu-modal {{tools_zhonglv?'show':''}}" style="">
+        <view catchtap style="background:#fff;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;border-radius:30rpx;width:700rpx;height:480rpx;overflow:hidden;z-index:9999;text-align:center;padding:50rpx 0rpx 0rpx 0rpx;border:10rpx solid #f7f7f7;">
+            <view>请选择给哪个奖品+{{zhonglvtitle}}%中率</view>
+            <view bindtap="hidetoolmodal" class="" style="position:absolute; right:10rpx;z-index:999;top:10rpx;">
+                <button class="cu-btn icon" style="height:40rpx;width:40rpx;">
+                    <text class="icon-close text-red"></text>
+                </button>
+            </view>
+            <scroll-view class="{{openthebox_animation4}}" scrollX="true" style="width:100%;margin-top:50rpx;">
+                <view style="display:flex;flex-direction:row;min-height:120rpx;align-items:flex-end">
+                    <view style="margin-right:20rpx;width:180rpx;" wx:for="{{openboxinfo.prizes_list}}" wx:for-item="prizes_list_item">
+                        <view bindtap="choicezhonglvprize" class="{{choicezhonglvprize_index==index?'bg-gradual-orange':'bg-white'}}" data-index="{{index}}" style="position:relative;height:180rpx;width:180rpx;padding:10rpx;border-radius:25rpx;">
+                            <image mode="aspectFill" src="{{prizes_list_item.prize_pic==''?'/resource/images/hiddenbox.jpg':prizes_list_item.prize_pic}}" style="width:100%;height:100%;border-radius:20rpx;"></image>
+                        </view>
+                        <view bindtap="viewprizesname" class="text-grey" data-name="{{prizes_list_item.prizes_fragment_title}}" style="font-size:20rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;"> {{prizes_list_item.prizes_fragment_title==''?'未知':prizes_list_item.prizes_fragment_title}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view style="display:flex;justify-content:space-around;margin-top:30rpx;">
+                <button bindtap="hidetoolmodal" class="cu-btn bg-gary margin-tb-sm xl round" style="z-index:9999;width:200rpx;">取消</button>
+                <button bindtap="choicezhonglvsubmit" class="cu-btn bg-gradual-orange margin-tb-sm xl round" style="z-index:9999;width:400rpx;">立即使用</button>
+            </view>
+        </view>
+    </view>
+    <view class="cu-bar2  tabbar border shop text-grey " style="{{showprize?'display:none;':''}}position:fixed;bottom:0rpx;width:100%;background:#f7f7f7;z-index:1200;height: 150rpx;border-radius:50rpx;padding-bottom: 0;padding:10rpx 0 5rpx 0;">
+        <view class="btn-group" style="padding:0 20rpx;width:100%;text-align: center;">
+            <view class="shadow-lg bg-gradual-orange a-wobble " style="{{guide[6]?'display:flex;':'display:none;'}}z-index:1800;width:250px;border-radius:20rpx;height:80px;position:absolute;top:-80px;right:20rpx;align-items:center;">
+                <image src="/resource/images/010-troglodyte.png" style="position:absolute;height:80rpx;width:80rpx;top:-40rpx;left:-40rpx;"></image>
+                <view class="triangle-down-right"></view>
+                <view style="padding:20rpx;">点击这里打开这个盒子吧！</view>
+            </view>
+            <button bindtap="showcashier" class="cu-btn bg-gradual-orange round " id="openboxbutton" style="width:90%;height:85rpx;">立即开盒</button>
+        </view>
+    </view>
+</view>
+<view catchtouchmove="return" class="cu-modal bottom-modal {{cashier?'show':''}}" style="z-index:1210">
+    <view class="cu-dialog" style="min-height:500rpx;border-radius: 40rpx 40rpx 0 0;">
+        <view class="padding-sm" style="">
+            <view bindtap="hidecashier" class="" style="display: flex;background:#eee;height:45rpx;width:45rpx;border-radius:50rpx;text-align:center;align-items:middle;float: right;">
+                <button class="cu-btn icon" style="background:#eee;height:45rpx;width:45rpx;">
+                    <text class="icon-close text-white"></text>
+                </button>
+            </view>
+            <view class="numfont" style="font-size:55rpx;padding:0rpx 0 30rpx 0;color:crimson;margin-top:30rpx">
+                <view style="display: flex;align-items:flex-end;justify-content: center;" wx:if="{{select_pay_type==1}}">
+                    <view>{{openboxinfo.box_open_integral}}</view>
+                    <view style="font-size: 20rpx;height: 35rpx;">{{currency_name}}</view>
+                </view>
+                <view style="display: flex;align-items:flex-end;justify-content: center;" wx:else>
+                    <view class="text-price">{{openboxinfo.box_open_price}}</view>
+                </view>
+            </view>
+            <view bindtap="payitemclick" data-type="2" style="background: #ffffff;padding: 20rpx;border-radius: 20rpx;display: flex;margin-bottom: 10rpx;align-items:center;justify-content:space-between" wx:if="{{openboxinfo.box_pay_payment_wechatpay==1}}">
+                <view style="display: flex;align-items:center">
+                    <image src="/resource/images/wepay.png" style="width: 50rpx;height: 50rpx;margin-right: 20rpx;"></image>
+                    <view>微信支付</view>
+                </view>
+                <text class="text-bold icon-check" style="color:{{select_pay_type==2?'#000':'#fff'}}"></text>
+            </view>
+            <view bindtap="payitemclick" data-type="1" style="background: #ffffff;padding: 20rpx;border-radius: 20rpx;display: flex;margin-bottom: 10rpx;align-items:center;justify-content:space-between" wx:if="{{openboxinfo.box_pay_payment_integral==1}}">
+                <view style="display: flex;align-items:center">
+                    <image src="/resource/images/kuangshi2.png" style="width: 50rpx;height: 50rpx;margin-right: 20rpx;"></image>
+                    <view>{{currency_name}}支付</view>
+                </view>
+                <view style="display: flex;">
+                    <view class="text-gray" style="margin-right: 20rpx;font-size:25rpx">
+                        <text style="margin-right: 12rpx;">剩余</text>{{openboxinfo.money.integral}}{{openboxinfo.money.integral<openboxinfo.box_open_integral?',不足支付':''}}</view>
+                    <text class="text-bold icon-check" style="color:{{select_pay_type==1?'#000':'#fff'}}"></text>
+                </view>
+            </view>
+            <view bindtap="payitemclick" data-type="3" style="background: #ffffff;padding: 20rpx;border-radius: 20rpx;display: flex;margin-bottom: 10rpx;align-items:center;justify-content:space-between" wx:if="{{openboxinfo.box_pay_payment_balance==1}}">
+                <view style="display: flex;align-items:center">
+                    <image src="/resource/images/xianjin.png" style="width: 50rpx;height: 50rpx;margin-right: 20rpx;"></image>
+                    <view>余额支付</view>
+                </view>
+                <view style="display: flex;">
+                    <view class="text-gray" style="margin-right: 20rpx;font-size:25rpx">余额¥{{openboxinfo.money.money}}{{openboxinfo.money.money<openboxinfo.box_open_price?',不足支付':''}}</view>
+                    <text class="text-bold icon-check" style="color:{{select_pay_type==3?'#000':'#fff'}}"></text>
+                </view>
+            </view>
+        </view>
+        <button bindtap="openthebox" class="{{openthebox_animation4}} cu-btn bg-gradual-orange round " data-id="{{openboxinfo.id}}" id="openboxbutton" style="width:80%;height:75rpx;">确定支付</button>
+        <view style="height:50rpx"></view>
+    </view>
+</view>
+<view class="cu-modal {{payloading==1||payloading==2?'show':''}}" style="z-index:1220;">
+    <view style="background:#fff;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;border-radius:30rpx;width:300rpx;height:300rpx;overflow:hidden;z-index:1220;text-align:center;padding:50rpx 0rpx 0rpx 0rpx;border:10rpx solid #f7f7f7;">
+        <view bindtap="hidecheckpaymodal" class="" style="position:absolute; right:10rpx;z-index:999;top:10rpx;">
+            <button class="cu-btn icon" style="height:40rpx;width:40rpx;">
+                <text class="icon-close text-red"></text>
+            </button>
+        </view>
+        <view wx:if="{{payloading==1}}">
+            <image src="/resource/images/loading.gif" style="width:170rpx;height:170rpx;"></image>
+            <view style="font-size:25rpx;"> 正在校检支付结果 </view>
+        </view>
+        <view wx:if="{{payloading==2}}">
+            <view style="height:150rpx;padding:50rpx 0 0 0"> 未支付成功！ </view>
+            <button bindtap="checkpayresultclick" class="cu-btn bg-gradual-orange margin-tb-sm sm round" data-orderid="{{paycheck_orderid}}" style="z-index:9999;width:250rpx;">点击重试</button>
+        </view>
+    </view>
+</view>

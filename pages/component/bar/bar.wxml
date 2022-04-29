@@ -1,0 +1,26 @@
+<view class="cu-tabbar-height"></view>
+<view class="cu-bar tabbar bg-white" style="position:fixed;bottom:0;width:100%">
+    <view bindtap="nav" class="action   {{navtab=='index'?'text-bold  text-black ':'text-grey'}}" data-tabs="index">
+        <view class="{{animation1}}" style="padding:10rpx;">
+            <image src="{{indextitle=='返回顶部'?'/resource/icon/rocket.png':bar_icon.icon_index}}" style="width:60rpx;height:60rpx;"></image>
+        </view> {{indextitle=='返回顶部'?'返回顶部':'首页'}} </view>
+    <view bindtap="nav" class="action  {{navtab=='warehouse'?'text-bold text-black ':'text-grey'}}" data-tabs="warehouse">
+        <view class="{{animation2}}" style="padding:10rpx;">
+            <image src="{{bar_icon.icon_warehouse}}" style="width:60rpx;height:60rpx;"></image>
+        </view> 仓库 </view>
+    <view bindtap="nav" class="action  {{navtab=='mystar'?'text-bold text-black ':'text-grey'}} add-action" data-tabs="mystar" wx:if="{{star_enable}}">
+        <view class="{{animation3}}" style="margin-top:-20rpx;z-index:9999;position:absolute;top:-60rpx;left: 0;right: 0;margin: auto;">
+            <image src="{{bar_icon.icon_star}}" style="width:120rpx;height:120rpx;"></image>
+        </view>
+        <view style="height:35rpx;"></view>
+        <text style="">我的星球</text>
+    </view>
+    <view bindtap="nav" class="action  {{navtab=='shop'?'text-bold text-black ':'text-grey'}}" data-tabs="shop">
+        <view class="{{animation4}}" style="padding:10rpx;">
+            <image src="{{bar_icon.icon_shop}}" style="width:60rpx;height:60rpx;"></image>
+        </view> 商店 </view>
+    <view bindtap="nav" class="action  {{navtab=='my'?'text-bold text-black ':'text-grey'}}" data-tabs="my">
+        <view class="{{animation5}}" style="padding:10rpx;">
+            <image mode="aspectFill" src="{{bar_icon.icon_my}}" style="width:60rpx;height:60rpx;"></image>
+        </view> 我的 </view>
+</view>

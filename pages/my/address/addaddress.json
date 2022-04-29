@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "c-loading": "/pages/component/loading/loading"
+    },
+    "navigationBarTitleText": "添加收货信息"
+}

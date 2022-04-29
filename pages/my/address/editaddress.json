@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "c-loading": "/pages/component/loading/loading"
+    },
+    "navigationBarTitleText": "编辑收货信息"
+}

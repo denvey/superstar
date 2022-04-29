@@ -1,0 +1,3 @@
+<import src="index.skeleton.wxml"></import>
+<template is="skeleton" data wx:if="{{loading}}"></template>
+<include src="lotteryindex.wxml"></include>

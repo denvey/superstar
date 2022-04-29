@@ -1,0 +1,6 @@
+{
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "c-loading": "/pages/component/loading/loading"
+    }
+}

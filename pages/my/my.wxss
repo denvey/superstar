@@ -1,0 +1,17 @@
+page {
+    background: #eee;
+}
+
+.cu-btn2 {
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    overflow: visible;
+    text-align: center;
+    text-decoration: none;
+    transform: translate(0rpx,0rpx);
+}
+
+.cu-btn2::after {
+    display: none;
+}

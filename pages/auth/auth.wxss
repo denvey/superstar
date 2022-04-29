@@ -1,0 +1,7 @@
+page {
+    background: #1f8eff;
+}
+
+button::after {
+    border: none;
+}

@@ -1,0 +1,331 @@
+<template name="skeleton">
+    <view class="sk-container" style="z-index: 9999;background:#f2f4f3;">
+        <view id="loading" is="pages/component/loading/loading"></view>
+        <view class="cu-custom" style="true">
+            <view class="cu-bar fixed" style="height:94px;padding-top:44px;display:flex;justify-content:space-between">
+                <view style="display:flex;margin-left:10px;align-items:flex-end;margin-top:-10px">
+                    <image class="sk-image" mode="heightFix" style="height: 30px; width: 30px;"></image>
+                </view>
+            </view>
+        </view>
+        <view class="topimg-area" style="overflow:hidden;position:relative;z-index:0">
+            <swiper autoplay="false" circular="true" class="screen-swiper " current="0" duration="500" indicatorDots="true" interval="5000" style="height: 100%;">
+                <swiper-item style="position: absolute; width: 100%; height: 100%; transform: translate(0%, 0px) translateZ(0px);">
+                    <image class="sk-image" mode="widthFix" style="height: 375px;"></image>
+                </swiper-item>
+            </swiper>
+            <view class="danmu-list" style="height:55px;width:100%;top:0;"></view>
+        </view>
+        <view style="display:flex;padding:0 5px;margin-top:-50px;position:relative;z-index:99">
+            <view class="icon-bar shadow-blur bg-red bg-img sk-pseudo sk-pseudo-circle" style="true">
+                <image class="sk-image" mode="aspectFill" style="position:absolute;top:0;z-index:10;left:0;width:100%;border-radius:15px;"></image>
+                <view class="icon" data-selected_classid="10">
+                    <image class="sk-image" style="border-radius: 50%; width: 45px; height: 45px; border: none;"></image>
+                    <view class="sk-transparent sk-text-14-2857-808 sk-text" style="margin-top:5px;color:#fff;font-weight:400;font-size:12px;">数码产品</view>
+                    <view class="triangle-down-left" style="border: none;"></view>
+                </view>
+                <view class="icon" data-selected_classid="17">
+                    <image class="sk-image" style="border-radius: 50%; width: 45px; height: 45px; border: none;"></image>
+                    <view class="sk-transparent sk-text-14-2857-198 sk-text" style="margin-top:5px;color:#fff;font-weight:400;font-size:12px;">美妆护肤</view>
+                </view>
+                <view class="icon" data-selected_classid="18">
+                    <image class="sk-image" style="border-radius: 50%; width: 45px; height: 45px; border: none;"></image>
+                    <view class="sk-transparent sk-text-14-2857-311 sk-text" style="margin-top:5px;color:#fff;font-weight:400;font-size:12px;">服饰鞋帽</view>
+                </view>
+                <view class="icon" data-selected_classid="19">
+                    <image class="sk-image" style="border-radius: 50%; width: 45px; height: 45px; border: none;"></image>
+                    <view class="sk-transparent sk-text-14-2857-627 sk-text" style="margin-top:5px;color:#fff;font-weight:400;font-size:12px;">运动户外</view>
+                </view>
+                <view class="icon" data-selected_classid="20">
+                    <image class="sk-image" style="border-radius: 50%; width: 45px; height: 45px; border: none;"></image>
+                    <view class="sk-transparent sk-text-14-2857-285 sk-text" style="margin-top:5px;color:#fff;font-weight:400;font-size:12px;">家私家纺</view>
+                </view>
+                <view style="min-width:60px;"></view>
+                <view style="min-width:60px;"></view>
+                <view style="min-width:60px;"></view>
+                <view style="min-width:60px;"></view>
+                <view style="min-width:60px;"></view>
+            </view>
+        </view>
+        <view style="padding:10px 0 0 0;margin-top:5px;">
+            <view style="display:flex;align-items:flex-end;justify-content:space-between;padding:0 5px 0 10px;">
+                <view class="slideright-animation-back sk-transparent" style="font-size:17px;line-height:17px;font-weight:700;">新品推荐 <view class="text-grey sk-transparent sk-text-14-7059-266 sk-text" style="line-height:17px;font-size:12px;">New product recommendation</view>
+                </view>
+                <button class="cu-btn round sm bg-white shadow in-animation2 sk-transparent sk-button sk-pseudo sk-pseudo-circle">More+</button>
+            </view>
+            <view scrollX="true" style="width:100%;height:185px;overflow:hidden;">
+                <view style="display:flex;margin-top:10px;margin-left:5px;">
+                    <navigator style="margin-bottom:20rpx;background:#fff;border-radius:25rpx;min-width:235rpx;width:235rpx;margin-right:15rpx;overflow:hidden;padding:45rpx 12rpx 10rpx 12rpx;position:relative">
+                        <view style="position:absolute;top:0;left:0;padding:2px 10px;border-radius:12px 0 12px 0;background:#EEEEEE">
+                            <view class="sk-transparent sk-text-14-2857-574 sk-text" style="font-size:9px;color:#000000">稀有盒子</view>
+                        </view>
+                        <image class="sk-image" mode="aspectFill" style="width:100%;height:105px;border-radius:10px;"></image>
+                        <view style="padding:0 5px 5px 5px;">
+                            <view class="sk-transparent sk-text-14-2857-618 sk-text" style="font-size: 12px;width:100%">长右·肆拾</view>
+                            <view style="height:2px;"></view>
+                            <view style="display:flex;align-items:flex-end;">
+                                <view class="text-price sk-pseudo sk-pseudo-circle" style="font-family:font22341;font-size: 15px;color:#d60303">
+                                    <text class="sk-transparent sk-text-14-2857-357 sk-text">0.01</text>
+                                </view>
+                                <view class="sk-transparent sk-text-14-2857-488 sk-text" style="font-size:7px;padding:0 0 2px 2px;">| 100金币 </view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <navigator style="margin-bottom:20rpx;background:#fff;border-radius:25rpx;min-width:235rpx;width:235rpx;margin-right:15rpx;overflow:hidden;padding:45rpx 12rpx 10rpx 12rpx;position:relative">
+                        <view style="position:absolute;top:0;left:0;padding:2px 10px;border-radius:12px 0 12px 0;background:#EEEEEE">
+                            <view class="sk-transparent sk-text-14-2857-184 sk-text" style="font-size:9px;color:#ffffff">普通盒子</view>
+                        </view>
+                        <image class="sk-image" mode="aspectFill" style="width:100%;height:105px;border-radius:10px;"></image>
+                        <view style="padding:0 5px 5px 5px;">
+                            <view class="sk-transparent sk-text-14-2857-106 sk-text" style="font-size: 12px;">鹿蜀·陆拾</view>
+                            <view style="height:2px;"></view>
+                            <view style="display:flex;align-items:flex-end;">
+                                <view class="text-price sk-pseudo sk-pseudo-circle" style="font-family:font22341;font-size: 15px;color:#d60303">
+                                    <text class="sk-transparent sk-text-14-2857-100 sk-text">0.10</text>
+                                </view>
+                                <view class="sk-transparent sk-text-14-2857-762 sk-text" style="font-size:7px;padding:0 0 2px 2px;">| 100金币 </view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <navigator style="margin-bottom:20rpx;background:#fff;border-radius:25rpx;min-width:235rpx;width:235rpx;margin-right:15rpx;overflow:hidden;padding:45rpx 12rpx 10rpx 12rpx;position:relative">
+                        <view style="position:absolute;top:0;left:0;padding:2px 10px;border-radius:12px 0 12px 0;background:#EEEEEE">
+                            <view class="sk-transparent sk-text-14-2857-410 sk-text" style="font-size:9px;color:#000000">稀有盒子</view>
+                        </view>
+                        <image class="sk-image" mode="aspectFill" style="width:100%;height:105px;border-radius:10px;"></image>
+                        <view style="padding:0 5px 5px 5px;">
+                            <view class="sk-transparent sk-text-14-2857-799 sk-text" style="font-size: 12px;">斗木獬·壹拾</view>
+                            <view style="height:2px;"></view>
+                            <view style="display:flex;align-items:flex-end;">
+                                <view class="text-price sk-pseudo sk-pseudo-circle" style="font-family:font22341;font-size: 15px;color:#d60303">
+                                    <text class="sk-transparent sk-text-14-2857-563 sk-text">0.10</text>
+                                </view>
+                                <view class="sk-transparent sk-text-14-2857-161 sk-text" style="font-size:7px;padding:0 0 2px 2px;">| 100金币 </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view id="boxlist"></view>
+        <view style="height:40px ;">
+            <view class="weui-sticky sticky-index--weui-sticky" style="height: 42px; z-index: 99;">
+                <view class="weui-sticky__fixed sticky-index--weui-sticky__fixed" style="top: 84px;">
+                    <scroll-view scrollX="true" style="background:#f2f4f3;min-width:375px;max-width:375px;padding:10px 0;">
+                        <view style="display:flex;margin-left:10px;width:100%;background:#f2f4f3;">
+                            <view class="bg-gradual-orange text-white sk-transparent sk-image" data-tagid="0" style="margin-right:10px;border-radius:15px;padding:2px 10px;white-space: nowrap;font-weight:300"> 全部</view>
+                            <view class="bg-gradual-orange text-white sk-transparent sk-image" data-tagid="0" style="margin-right:10px;border-radius:15px;padding:2px 10px;white-space: nowrap;font-weight:300"> 全部全部</view>
+                            <view class="bg-gradual-orange text-white sk-transparent sk-image" data-tagid="0" style="margin-right:10px;border-radius:15px;padding:2px 10px;white-space: nowrap;font-weight:300"> 全部全部</view>
+                            <view class="bg-gradual-orange text-white sk-transparent sk-image" data-tagid="0" style="margin-right:10px;border-radius:15px;padding:2px 10px;white-space: nowrap;font-weight:300"> 全部全部</view>
+                            <view class="bg-gradual-orange text-white sk-transparent sk-image" data-tagid="0" style="margin-right:10px;border-radius:15px;padding:2px 10px;white-space: nowrap;font-weight:300"> 全部全部</view>
+                            <view style="min-width:0.5px;"></view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+        <view style="padding:5px;width:100%;margin-top:0px;">
+            <view style="display:flex;flex-wrap:wrap;justify-content:space-between;">
+                <navigator style="margin-bottom:20rpx;background:#fff;border-radius:25rpx;width:235rpx;overflow:hidden;padding:45rpx 10rpx 5rpx 10rpx;position:relative">
+                    <view style="position:absolute;top:0;left:0;padding:2px 10px;border-radius:0 0 12px 0;background:#EEEEEE">
+                        <view class="sk-transparent sk-text-14-2857-113 sk-text" style="font-size:9px;color:#000000">稀有盒子</view>
+                    </view>
+                    <image class="sk-image" mode="aspectFill" style="width:100%;height:105px;border-radius:10px;"></image>
+                    <view style="font-size:12px;padding:0 5px 5px 5px;">
+                        <view class="sk-transparent sk-text-14-2857-994 sk-text">神灵夸父·壹拾</view>
+                        <view style="height:2px;"></view>
+                        <view style="display:flex;align-items:flex-end;">
+                            <view class="text-price sk-pseudo sk-pseudo-circle" style="font-family:font22341;font-size: 15px;color:#d60303">
+                                <text class="sk-transparent sk-text-14-2857-86 sk-text">0.10</text>
+                            </view>
+                            <view class="sk-transparent sk-text-14-2857-34 sk-text" style="font-size:7px;padding:0 0 2px 2px;">| 99金币 </view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator style="margin-bottom:20rpx;background:#fff;border-radius:25rpx;width:235rpx;overflow:hidden;padding:45rpx 10rpx 5rpx 10rpx;position:relative">
+                    <view style="position:absolute;top:0;left:0;padding:2px 10px;border-radius:0 0 12px 0;background:#EEEEEE">
+                        <view class="sk-transparent sk-text-14-2857-282 sk-text" style="font-size:9px;color:#000000">稀有盒子</view>
+                    </view>
+                    <image class="sk-image" mode="aspectFill" style="width:100%;height:105px;border-radius:10px;"></image>
+                    <view style="font-size:12px;padding:0 5px 5px 5px;">
+                        <view class="sk-transparent sk-text-14-2857-368 sk-text">西王母·伍柒</view>
+                        <view style="height:2px;"></view>
+                        <view style="display:flex;align-items:flex-end;">
+                            <view class="text-price sk-pseudo sk-pseudo-circle" style="font-family:font22341;font-size: 15px;color:#d60303">
+                                <text class="sk-transparent sk-text-14-2857-724 sk-text">0.10</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator style="margin-bottom:20rpx;background:#fff;border-radius:25rpx;width:235rpx;overflow:hidden;padding:45rpx 10rpx 5rpx 10rpx;position:relative">
+                    <view style="position:absolute;top:0;left:0;padding:2px 10px;border-radius:0 0 12px 0;background:#EEEEEE">
+                        <view class="sk-transparent sk-text-14-2857-498 sk-text" style="font-size:9px;color:#000000">稀有盒子</view>
+                    </view>
+                    <image class="sk-image" mode="aspectFill" style="width:100%;height:105px;border-radius:10px;"></image>
+                    <view style="font-size:12px;padding:0 5px 5px 5px;">
+                        <view class="sk-transparent sk-text-14-2857-919 sk-text">井木犴·肆陆</view>
+                        <view style="height:2px;"></view>
+                        <view style="display:flex;align-items:flex-end;">
+                            <view class="text-price sk-pseudo sk-pseudo-circle" style="font-family:font22341;font-size: 15px;color:#d60303">
+                                <text class="sk-transparent sk-text-14-2857-577 sk-text">0.10</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="cu-modal sk-pseudo sk-pseudo-circle">
+            <view class="cu-dialog" style="width: 98%; height: 90%; border: none; border-radius: 25px; overflow: hidden; transform: rotate(0deg);">
+                <view style="position:absolute; left:0px;z-index:999;top:0px;background:#fff;height:32px;width:32px;border-radius:0 0 25px 0;text-align:center;align-items:middle;">
+                    <button class="cu-btn icon sk-button sk-pseudo sk-pseudo-circle" style="background:#fff;height:27px;width:27px;">
+                        <text class="icon-close text-red sk-pseudo sk-pseudo-circle"></text>
+                    </button>
+                </view>
+                <view style="position:absolute;width:100%;z-index:0;">
+                    <view style="filter: blur(12px);height:425px;width:120%;background:url('') no-repeat center center;background-size:120%;margin-left:-10%;margin-top:-10%"></view>
+                </view>
+                <view style="border-radius:25px;overflow:hidden;position:relative;z-index:800;-webkit-transform:rotate(0deg);padding:10px;">
+                    <scroll-view scrollIntoView="true" scrollTop="0" scrollWithAnimation="true" scrollY="true" showScrollbar="true" style="width:100%;height:100vh;overflow:hidden;margin-top:5px;">
+                        <view style="position:relative;padding:0px 0 40px 0;">
+                            <view style="display:flex;flex-direction:column;width:100%;align-items:center;-webkit-transform:rotate(0deg);">
+                                <view style="border: none; width: 140px; height: 140px; margin-top: 40px; border-radius: 15px; z-index: 1200; overflow: hidden;">
+                                    <image class="sk-image" mode="aspectFill" style="width:100%;height:100%;border-radius:10px;"></image>
+                                </view>
+                            </view>
+                            <view class="bg-white" style="position:relative;margin:10px 0;padding:5px 15px 10px 15px;border-radius:15px;z-index:9">
+                                <view class="bg-gradual-orange sk-image" style="position:absolute;width:200px;height:25px;top:0;left:0;right:0;margin:auto;border-radius:0 0 25px 25px">
+                                    <text style="margin:10px 0;color:#fff;font-size:10px;line-height:25px;"></text>
+                                </view>
+                                <scroll-view scrollX="true" style="width:100%;margin-top:35px;">
+                                    <view style="display:flex;flex-direction:row;min-height:60px;"></view>
+                                </scroll-view>
+                                <view style="width:100%;padding:10px 0;color:#000">
+                                    <view style="background:#f7f7f7;border-radius:7px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+                                        <view style="position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:7px 15px;text-align:left;overflow:hidden">
+                                            <view class="sk-transparent" style="font-size:17px;font-weight:700;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;"></view>
+                                            <image class="sk-image" style="position:absolute;top:0px;right:0px;width:60px;height:60px;"></image>
+                                        </view>
+                                        <view style="display:flex;background:#fed73e;justify-content:space-between;padding:5px 10px;text-align:left;align-items:center;">
+                                            <view style="display:flex;align-items:center;">
+                                                <view style="display:flex;align-items:flex-end">
+                                                    <text class="numfont sk-transparent sk-text-14-2857-369 sk-text" style="margin:0 5px;font-size:15px;font-weight:bold">免费</text>
+                                                </view>
+                                            </view>
+                                            <view>
+                                                <view class="cu-avatar-group">
+                                                    <view class="cu-avatar round sm avatarmore" style="border: none;"></view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view style="position:relative;z-index:8">
+                                <view style="height:200px;"></view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+                <view class="cu-bar2 tabbar border shop text-grey" style="position:absolute;bottom:0px;width:100%;background:#f7f7f7;z-index:1200;height: 50px;border-radius:25px;padding-bottom: 0;padding:5px 0 2px 0;">
+                    <view class="action sk-transparent">
+                        <view>
+                            <image class="sk-image" style="width:25px;height:25px;margin-bottom:5px"></image>
+                        </view> 详情 </view>
+                    <button class="action sk-button sk-pseudo sk-pseudo-circle" data-id="undefined" openType="share">
+                        <view>
+                            <image class="sk-image" style="width:25px;height:25px;margin-bottom:5px"></image>
+                        </view>
+                    </button>
+                    <view class="action sk-transparent" data-id="undefined">
+                        <view>
+                            <image class="sk-image" style="width:25px;height:25px;margin-bottom:5px"></image>
+                        </view> 删除 </view>
+                    <view class="btn-group" style="padding:0 10px;">
+                        <button class="cu-btn bg-gray round shadow-blur sk-transparent sk-button sk-pseudo sk-pseudo-circle" data-id="undefined" style="width:200px;height:37px;">---</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-modal bottom-modal sk-pseudo sk-pseudo-circle">
+            <view class="cu-dialog" style="border-radius:25px 25px 0 0;">
+                <view class="cu-bar" style="flex-direction:row-reverse;height:55px;">
+                    <button class="cu-btn icon sk-button sk-pseudo sk-pseudo-circle" style="height:35px;width:35px;margin-right:10px;">
+                        <text class="icon-close text-red sk-pseudo sk-pseudo-circle"></text>
+                    </button>
+                </view>
+                <view style="height:80vh;padding:0 2px;">
+                    <scroll-view scrollY="true" style="width:100%;height:100%"></scroll-view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-modal sk-pseudo sk-pseudo-circle" style="z-index:1001 !important;">
+            <view class="cu-dialog" style="background:transparent !important;width: 375px;border-radius:15px;">
+                <view style="position:absolute;z-index:1;display:flex;justify-content:center;top:160px;left:0;right:0;margin:0 auto;">
+                    <view style="position:relative;width:115px;border-radius:15px;background:#fff;padding:7px;margin-right:5px;">
+                        <image class="sk-image" mode="aspectFill" style="width:100px;height:100px;border-radius:10px;"></image>
+                        <view class="sk-transparent" style="font-size:10px;color:#000;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;"></view>
+                    </view>
+                </view>
+                <view style="position:absolute;z-index:1;display:flex;width: 160px;align-items:center;top:30px;left:0px;right:0;margin:0 auto;">
+                    <image class="sk-image" style="border: none; min-width: 35px; width: 35px; height: 35px; border-radius: 50%; margin-right: 10px;"></image>
+                    <view class="sk-transparent" style="color:#fff4d5;font-size:15px;font-weight:bold;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;"></view>
+                </view>
+                <view style="position:absolute;z-index:1;display:flex;width: 160px;height:50px;align-items:center;top:330px;left:0px;right:0;margin:0 auto;"></view>
+                <image class="sk-image" mode="widthFix" style="position: relative; width: 100%; left: 0px; top: 0px; z-index: 0; height: 415.625px;"></image>
+            </view>
+        </view>
+        <view class="cu-modal sk-pseudo sk-pseudo-circle" style="z-index:998 !important;">
+            <view class="cu-dialog" style="width: 350px;border-radius:15px;">
+                <view class="bg-grey" style="padding:25px 15px 25px 15px;">
+                    <view style="position:absolute; right:10px;top:10px;z-index:30;">
+                        <button class="cu-btn icon sk-button sk-pseudo sk-pseudo-circle" style="height:35px;width:35px;font-size:15px;">
+                            <text class="icon-close text-red text-bold sk-pseudo sk-pseudo-circle"></text>
+                        </button>
+                    </view>
+                    <view>
+                        <image class="sk-image" style="width:350px;height:350px;position:absolute;left:-80px;top:-85px;z-index:0;"></image>
+                    </view>
+                    <view class="sk-transparent sk-text-14-2857-826 sk-text" style="margin-bottom:40px;position:relative;z-index:10;font-size:35px;font-weight:700;text-align:left;"> 盒子兑换</view>
+                    <view style="display:flex;justify-content:space-between;position:relative;z-index:10">
+                        <view class="bg-white" style="width:155px;border-radius:15px;padding:0px 0px 20px 0;">
+                            <view class="bg-gradual-green sk-image" style="height:30px;width:100px;border-radius:15px 0;margin-top:-15px;">
+                                <text class="sk-transparent sk-text-26-6667-610 sk-text" style="line-height: 30px; background-position-x: 50%;">暂未开放</text>
+                            </view>
+                            <view style="margin-top:30px;height:35px;">
+                                <text class="sk-transparent sk-text-0-0000-110 sk-text" style="line-height: 35px; font-size: 35px; font-weight: 700; color: rgb(0, 0, 0); background-position-x: 50%;">免费</text>
+                            </view>
+                            <view style="margin-top:25px;">
+                                <text class="sk-transparent sk-text-14-2857-492 sk-text" style="font-size: 15px; font-weight: 700; background-position-x: 50%;">普通盒子 X1</text>
+                            </view>
+                            <button class="cu-btn round bg-gray shadow sk-transparent sk-button sk-pseudo sk-pseudo-circle" style="margin-top:10px;">敬请期待</button>
+                            <view class="sk-transparent" style="font-size:10px;margin-top:5px;"></view>
+                        </view>
+                        <view class="bg-white" style="width:155px;border-radius:15px;padding:0px 0px 20px 0;">
+                            <view class="bg-gradual-gold sk-image" style="height:30px;width:100px;border-radius:15px 0;margin-top:-15px;">
+                                <text class="sk-transparent sk-text-26-6667-203 sk-text" style="line-height: 30px; font-weight: 700; background-position-x: 50%;">积分兑换</text>
+                            </view>
+                            <view style="margin-top:30px;height:35px;color:#000">
+                                <text style="font-size:35px;line-height:35px;font-weight:700"></text>
+                                <text class="sk-transparent sk-text-28-5714-621 sk-text" style="line-height: 35px; font-size: 15px; font-weight: 700; background-position-x: 50%;">矿石</text>
+                            </view>
+                            <view style="margin-top:25px;">
+                                <text class="sk-transparent sk-text-14-2857-696 sk-text" style="font-size: 15px; font-weight: 700; background-position-x: 50%;">随机盒子X</text>
+                            </view>
+                            <button class="cu-btn round bg-gradual-gold shadow sk-transparent sk-pseudo sk-pseudo-circle sk-image" style="margin-top:10px;">立即兑换</button>
+                            <view class="sk-transparent sk-text-14-2857-660 sk-text" style="font-size: 10px; margin-top: 5px; background-position-x: 50%;">有机会获得高等盒子</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-modal bottom-modal sk-pseudo sk-pseudo-circle" style="z-index:999 !important;"></view>
+        <view class="cu-modal sk-pseudo sk-pseudo-circle" style="true">
+            <view style="background: rgb(255, 255, 255); position: absolute; inset: 0px; margin: auto; border-radius: 15px; width: 150px; height: 150px; overflow: hidden; z-index: 9999; text-align: center; padding: 25px 0px 0px; border: none;">
+                <view style="position:absolute; right:5px;z-index:999;top:5px;">
+                    <button class="cu-btn icon sk-button sk-pseudo sk-pseudo-circle" style="height:20px;width:20px;">
+                        <text class="icon-close text-red sk-pseudo sk-pseudo-circle"></text>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

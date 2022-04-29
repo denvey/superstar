@@ -1,0 +1,30 @@
+<view class="bg-gradual-gold2" style="padding:50rpx;display:flex;justify-content:space-between">
+    <view>
+        <view style="font-size:30rpx;padding:0 0rpx;">可用金额(元)</view>
+        <view class="numfont" style="font-size:120rpx;margin-top:20rpx;">{{memberinfo_yue}}</view>
+        <view class="numfont" style="font-size:65rpx;margin-top:20rpx;">{{memberinfo_frozen_money}}</view>
+        <view style="font-size:20rpx;padding:0 0rpx;margin-top:0rpx;">不可用金额(元)</view>
+    </view>
+    <view style="position:relative">
+        <view style="z-index:9999;width:250rpx;position:absolute;bottom:-20rpx;right:0rpx;">
+            <button bindtap="tixian" class="cu-btn bg-gradual-orange margin-tb-sm  round" style="" wx:if="{{memberinfo.force_phonenumber_enable==0}}">立即提现</button>
+            <button bindgetphonenumber="getPhoneNumber" class="cu-btn bg-gradual-orange margin-tb-sm  round" openType="getPhoneNumber" style="" wx:if="{{memberinfo.force_phonenumber_enable==1}}">立即提现</button>
+            <view class="text-white" style="font-size:20rpx;line-height:20rpx;">最低提现金额:¥{{memberinfo.minimum_withdrawal_money}}</view>
+        </view>
+    </view>
+</view>
+<view style="padding:20rpx;">
+    <view style="font-size:45rpx;margin-left:20rpx;font-weight:bold">提现记录</view>
+    <view bindtap="showreasons" class="bg-white" data-txt="{{item.reasons_for_rejection}}" style="display:flex;justify-content:space-between;margin-top:20rpx;padding:20rpx;align-items:center;border-radius:20rpx;" wx:for="{{memberinfo.withdrawal_applications}}">
+        <view>
+            <view style="font-size:30rpx;font-weight:bold">手动提现</view>
+            <view class="text-gray" style="font-size:25rpx;margin-top:15rpx;">{{item.time}}</view>
+        </view>
+        <view style="text-align:right">
+            <view class="numfont" style="font-size:45rpx;">¥{{item.money}}</view>
+            <view class="{{item.state==2?'text-red':'text-gray'}}" style="font-size:25rpx;margin-top:10rpx;">{{item.state==0?'提现审核中':''}}{{item.state==1?'已完成':''}}{{item.state==2?'驳回(查看原因)':''}}</view>
+        </view>
+    </view>
+    <view style="{{memberinfo.withdrawal_applications.length>0?'display:none;':'display:flex;'}}height:300rpx;width:100%;align-items:center;justify-content:center;"> 暂无提现记录
+</view>
+</view>
